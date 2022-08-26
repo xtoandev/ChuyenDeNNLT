@@ -1,1 +1,3 @@
-# ChuyenDeNNLT
+# ChuyenDeNgonNguLapTrinh 
+#Ruby
+#RubyMineIDE
