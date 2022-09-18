@@ -1,3 +1,7 @@
+
+# ChuyenDeNgonNguLapTrinh 
+## Phạm Xuân Toán_1911505310155
+#Ruby
 #RubyMineIDE
 
 # 0.Note
@@ -126,3 +130,4 @@ puts result2
 Output:
 >true \
 false
+
