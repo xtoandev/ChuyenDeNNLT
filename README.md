@@ -27,12 +27,20 @@
   - [3.7.2. Ranges as Conditions](#RangesasConditions)
   - [3.7.3. Ranges as Intervals](#RangesasIntervals)
 
-[4. Data Types](#DataTypes)
+[4. Types of Variables](#TypesofVariables)
 - [Local variables](#Localvariables)
 - [Instance Variables, Class Variables](#Instance-ClassVariables)
 - [Global Variables](#GlobalVariables)
 
-===========================
+[5. Operators](#Operators)
+- [5.1. Arithmetic Operators](#ArithmeticOperators)
+- [5.2. Comparison Operators](#Comparison Operators)
+- [5.3. Logical Operators](#LogicalOperators)
+- [5.4. Assignment Operators](#AssignmentOperators)
+- [5.5. Ternary Operator](#TernaryOperator)
+- [5.6. defined? Operator](#definedOperator)
+
+========================================================
 <a name="Note"></a>
 # 0.Note
 In Ruby, everything is treated as an object.
@@ -52,8 +60,8 @@ The following list shows the reserved words in Ruby. These reserved words may no
 | break	   | false	| rescue | when       |
 | case	   | for	| retry	 | while      |
 | class	   | if	    | return | while      |
-| def	   | in	    | self	 | \___FILE\___  |
-| defined? | module	| super	 | \___LINE\___  |
+| def	   | in	    | self	 |   |
+| defined? | module	| super	 |  |
 
 <a name="RubyComments"></a>
 # 2.Ruby Comments
@@ -525,7 +533,129 @@ Output:
 >Global variable in Class1 is 10 \
 Global variable in Class2 is 10
 
+<a name="Operators"></a>
+# 5. Operators
+<a name="ArithmeticOperators"></a>
+#### 5.1. Arithmetic Operators
+- Addition(+): operator adds two operands. For example, x+y.
+- Subtraction(-): operator subtracts two operands. For example, x-y.
+- Multiplication(\*): operator multiplies two operands. For example, x*y.
+- Division(/): operator divides the first operand by the second. For example, x/y.
+- Modulus(%): operator returns the remainder when first operand is divided by the second. For example, x%y.
+- Exponent(\**): operator returns exponential(power) of the operands. For example, x**y.
+```ruby
+# Addition
+puts (10 + 20)  #=>Output: 30
+# Subtraction
+puts (40 - 20)  #=>Output: 20
+# Division
+puts (100 / 20) #=>Output: 50
+# Multiplication
+puts (10 * 20)  #=>Output: 200
+# Modulus
+puts (20 % 7)   #=>Output: 6
+# Exponent
+puts (2 ** 4)   #=>Output: 16
+```
+<a name="ComparisonOperators"></a>
+#### 5.2. Comparison Operators
+- Equal To(==) operator checks whether the two given operands are equal or not. If so, it returns true. Otherwise it returns false. For example, 5==5 will return true.
+- Not Equal To(!=) operator checks whether the two given operands are equal or not. If not, it returns true. Otherwise it returns false. It is the exact boolean complement of the ‘==’ operator. For example, 5!=5 will return false.
+- Greater Than(>) operator checks whether the first operand is greater than the second operand. If so, it returns true. Otherwise it returns false. For example, 6>5 will return true.
+- Less than(<) operator checks whether the first operand is lesser than the second operand. If so, it returns true. Otherwise it returns false. For example, 6<5 will return false.
+- Greater Than Equal To(>=) operator checks whether the first operand is greater than or equal to the second operand. If so, it returns true. Otherwise it returns false. For example, 5>=5 will return true.
+- Less Than Equal To(<=) operator checks whether the first operand is lesser than or equal to the second operand. If so, it returns true. Otherwise it returns false. For example, 5<=5 will also return true.
+- Combined combination (<=>) operator return 0 when first operand equal to second, return 1 when first operand is greater than second operand, and return -1 when first operator is less than second operand.
+- Case Equality Operator(===) It will test equality in case statement.
+- ‘.eql?’ This operator returns true if the receiver and argument have both the same type and equal values.
+- ‘Equal?’ This operator Returns true if if the receiver and argument have the same object id.
 
+```ruby
+#Combined combination operator
+puts(20 <=> 20)          #=>Output: 0
+puts(10 <=> 20)          #=>Output: -1
+puts(20 <=> 10)          #=>Output: 1
+```
+<a name="Logical Operators"></a>
+#### 5.3. Logical Operators
+- Logical AND(&&) operator returns true when both the conditions in consideration are satisfied. Otherwise it returns false. Using “and” is an alternate for && operator. For example, a && b returns true when both a and b are true (i.e. non-zero).
+- Logical OR(||) operator returns true when one (or both) of the conditions in consideration is satisfied. Otherwise it returns false. Using “or” is an alternate for || operator. For example, a || b returns true if one of a or b is true (i.e. non-zero). Of course, it returns true when both a and b are true.
+- Logical NOT(!): operator returns true the condition in consideration is not satisfied. Otherwise it returns false. Using “not” is an alternate for ! operator. For example, !true returns false.
 
+```ruby
+# Variables
+a = 10
+b = 20
+c = 30
 
+# using && operator
+if a == 10 && b == 20 && c == 30
+  puts "Logical AND Operator"
+  puts result = a * b * c
+end
 
+# using || operator
+puts "Logical OR operator"
+if a == 10 || b == 20
+  puts result = a + b + c
+end
+
+# using ! operator
+puts "Logical Not Operator"
+puts !(true)
+```
+Output:
+>Logical AND Operator \
+6000 \
+Logical OR operator \
+60 \
+Logical Not Operator \
+false
+<a name="AssignmentOperators"></a> 
+#### 5.4. Assignment Operators
+- Simple Assignment (=): operator is the simplest assignment operator. This operator is used to assign the value on the right to the variable on the left.
+- Add AND Assignment (+=) operator is used for adding left operand with right operand and then assigning it to variable on the left.
+- Subtract AND Assignment (-=) operator is used for subtracting left operand with right operand and then assigning it to variable on the left.
+- Multiply AND Assignment (*=) operator is used for multiplying left operand with right operand and then assigning it to variable on the left.
+- Divide AND Assignment (/=) operator is used for dividing left operand with right operand and then assigning it to variable on the left.
+- Modulus AND Assignment (%=) operator is used for assigning modulo of left operand with right operand and then assigning it to variable on the left.
+- Exponent AND Assignment (**=) operator is used for raising power of left operand to right operand and assigning it to variable on the left.
+<a name="TernaryOperator"></a>
+#### 5.5.Ternary Operator
+Syntax :
+>condition ? first_expression : second_expression;
+
+condition: It be evaluated to true or false.\
+If the condition is , first_expression is evaluated and becomes the result.
+If the condition is false, second_expression is evaluated and becomes the result. 
+```ruby
+# variable
+marks_obtained = 100
+
+# using ternary operator
+result = marks_obtained > 40 ? 'Pass' : 'Fail'
+
+# displaying output
+puts result #=>Output: Pass
+```
+<a name="definedOperator"></a>
+#### 5.6 defined? Operator
+>defined? expression_to_be_checked 
+```ruby
+# variables
+GFG =  1
+Geeks = 70
+ 
+# using defined? Operator
+# it returns constant
+puts defined? GFG  #=>Ouput: constant     
+ 
+# it returns constant
+puts defined? Geeks #=>Ouput: constant  
+ 
+# it returns expression
+puts defined? a  #=>Ouput:  
+        
+# it returns expression
+puts defined? 50  #=>Ouput:expression
+```
