@@ -1,8 +1,9 @@
 
 # ChuyenDeNgonNguLapTrinh 
 ## Phạm Xuân Toán_1911505310155
-#Ruby
-#RubyMineIDE
+- #### Langue: Ruby
+- #### IDE: RubyMineIDE(for JetBrains )
+
 ### Mục lục
 
 [0. Note](#Note)
@@ -34,13 +35,34 @@
 
 [5. Operators](#Operators)
 - [5.1. Arithmetic Operators](#ArithmeticOperators)
-- [5.2. Comparison Operators](#Comparison Operators)
+- [5.2. Comparison Operators](#ComparisonOperators)
 - [5.3. Logical Operators](#LogicalOperators)
 - [5.4. Assignment Operators](#AssignmentOperators)
 - [5.5. Ternary Operator](#TernaryOperator)
 - [5.6. defined? Operator](#definedOperator)
 
-========================================================
+[6. Control Structures](#ControlStructures)
+- [6.0. if..else](#ifelse)
+- [6.1. While](#While)
+- [6.2. For](#For)
+- [6.3. do..while](#dowhile)
+- [6.4. until Loop](#untilLoop)
+- [6.5. Case Statement](#CaseStatement)
+
+[7. Object-Oriented Programming](#OPP)
+- [7.1. Classes and Objects](#ClassesandObjects)
+- [7.2. Constructor](#Constructor)
+- [7.3. Getters and setters Method](#gettersandsetters)
+- [7.4. Inheritance in Ruby](#Inheritance)
+- [7.5. Polymorphism in Ruby](#Polymorphism)
+- [7.6. Encapsulation in Ruby](#Encapsulation)
+- [7.7. Data Abstraction](#DataAbstraction)
+
+[8. Include v/s Extend in Ruby](#IncludevsExtendinRuby)
+
+[9. Exceptions](#Exceptions)
+
+=======================================================
 <a name="Note"></a>
 # 0.Note
 In Ruby, everything is treated as an object.
@@ -658,4 +680,723 @@ puts defined? a  #=>Ouput:
         
 # it returns expression
 puts defined? 50  #=>Ouput:expression
+```
+<a name="ControlStructures"></a>
+# 6.Control Structures
+<a name="ifelse"></a>
+#### 6.0. if..else
+```ruby
+if count > 10
+  puts "Try again"
+elsif tries == 3
+  puts "You lose"
+else
+  puts "Enter a number"
+end
+```
+<a name="while"></a>
+#### 6.1.While
+```
+while conditional [do] 
+  #code to be executed 
+end
+```
+<a name="for"></a>
+#### 6.2. For
+```
+for variable_name[, variable...] in expression [do]
+
+   # code to be executed
+
+end
+```
+<a name="dowhile"></a>
+#### 6.3. do..while 
+```
+loop do
+
+ # code to be executed
+
+break if Boolean_Expression
+
+end
+```
+
+```ruby
+loop do
+     
+ puts "GeeksforGeeks"
+  
+ val = '7'
+  
+ # using boolean expressions
+ if val == '7'
+  break
+ end
+  
+# ending of ruby do..while loop
+end
+```
+Output:
+>GeeksforGeeks
+<a name="untilloop"></a>
+#### 6.4. until Loop
+```
+until conditional [do]
+
+ # code to be executed
+
+end
+```
+
+```ruby
+var = 7
+ 
+# using until loop
+# here do is optional
+until var == 11 do
+ 
+  # code to be executed
+  puts var * 10
+  var = var + 1
+   
+# here loop ends
+end
+```
+Output: 
+>70 \
+80 \
+90 \
+100
+>
+<a name="casestatement></a>
+#### 6.5. Case Statement
+
+```ruby
+print "Input from one, two, three, four: "
+
+# taking input from user
+# str = gets.chomp
+
+# hardcoded input
+str = "two"
+
+# using case statement
+case str
+
+# using when
+when "one"  
+puts 'Input is 1'
+
+when "two"  
+puts 'Input is 2'
+
+when "three" ,"3" 
+puts 'Input is 3'
+
+when "four","4"  
+puts 'Input is 4'
+
+else  
+puts "Default!"
+
+end  
+```
+Output: 
+>Input from one, two, three, four: Input is 2
+<a name="OOP"></a>
+# 7.Object-Oriented Programming
+
+```ruby
+class Language
+  def initialize(language_name, topic_name)
+    @language_name = language_name
+    @topic_name = topic_name
+  end
+end
+#create class
+object_name  = Language.new()
+```
+public and private
+```
+# Ruby program of Public and Private method
+class Vehicle
+    def initialize(vehicle_name, vehicle_color)
+        @vehicle_name = vehicle_name
+        @vehicle_color = vehicle_color
+    end
+    
+  # Using public method
+    public
+    def display
+        greeting
+        puts 'Your car details are: '
+        puts @vehicle_name
+        puts @vehicle_color
+    end
+    
+   # Using Private method
+    private
+    def greeting
+        puts 'Hello, user'
+    end
+end
+  
+# Creating object
+object = Vehicle.new('Nissan', 'white')
+  
+# Calling object
+object.display
+```
+Output:
+>Hello, user \
+Your car details are: \
+Nissan \
+white 
+
+Extend Mixins
+
+```
+module Greeting
+    def display
+        puts 'Hello'
+    end
+end
+  
+# Using extend keyword  
+class Greetuser
+    extend Greeting
+  attr_reader :name
+    def initialize(name)
+        @name = name
+    end
+end
+    
+# Creating object
+object = Greetuser.new('User_name')
+  
+# Calling object
+Greetuser.display
+puts object.name
+```
+Output:
+>Hello \
+User_name
+
+<a name="ClassesandObjects"></a>
+#### 7.1. Classes and Objects
+
+Method
+```
+def method_name
+  # Statement 1
+  # Statement 2
+  .
+  .
+end
+```
+
+Class
+```ruby
+class Customer
+   @@no_of_customers = 0
+   def initialize(id, name, addr)
+      @cust_id = id
+      @cust_name = name
+      @cust_addr = addr
+   end
+end
+```
+Object
+```ruby
+cust1 = Customer.new("1", "John", "Wisdom Apartments, Ludhiya")
+```
+<a name="Constructor"></a>
+#### 7.2. Constructor
+
+```
+  def initialize(parameter_list)
+  ...
+  end
+```
+
+```ruby
+  def initialize(id, name, addr)
+      @cust_id = id
+      @cust_name = name
+      @cust_addr = addr
+   end
+```
+
+<a name="gettersandsetters"></a>
+#### 7.3. Ruby getters and setters Method
+- attr_reader : This accessor generates the automatic Getter method for the given item.
+- attr_writer : This accessor generates the automatic Setter method for the given item.
+- attr_accessor : This accessor generates the automatic Getter & Setter method for the given item.
+
+```ruby
+ # Classical get method
+  def website
+    @website
+  end
+  
+  # Classical set method
+  def website=(website)
+    @website = website
+  end
+
+puts class_variable.website #get
+puts class_variable.website = ("url") #set
+```
+
+```ruby
+class CSWebsite
+  
+  # Constructor to initialize
+  # the class with a name
+  # instance variable
+  def initialize(website, id)
+    @website = website
+    @id = id
+  end
+  
+  # accessor get and set method
+  attr_accessor :website
+  attr_reader :id
+end
+  
+# Creating an object of the class
+gfg = CSWebsite.new "www.geeksforgeeks.org", 12
+puts gfg.website
+puts gfg.id
+```
+Output:
+>www.geeksforgeeks.org \
+12
+
+<a name="Inheritance"></a>
+#### 7.4. Inheritance in Ruby
+> subclass_name < superclass_name
+
+
+```ruby
+# Super class or parent class
+class GeeksforGeeks
+ 
+    # constructor of super class
+    def initialize
+         
+        puts "This is Superclass"
+    end
+     
+    # method of the superclass
+    def super_method
+         
+        puts "Method of superclass"
+    end
+end
+ 
+# subclass or derived class
+class Sudo_Placement < GeeksforGeeks
+ 
+    # constructor of deriver class
+    def initialize
+ 
+       puts "This is Subclass"
+    end
+end
+ 
+# creating object of superclass
+GeeksforGeeks.new
+ 
+# creating object of subclass
+sub_obj = Sudo_Placement.new
+ 
+# calling the method of super
+# class using sub class object
+sub_obj.super_method
+```
+Output:
+>This is Superclass \
+This is Subclass \
+Method of superclass 
+
+Whenever you want to call parent class method of the same name so you can simply write super or super()
+```ruby
+# base class
+class Geeks_1
+    
+    # method of superclass accepting
+    # two parameter
+    def display a = 0, b = 0
+        puts "Parent class, 1st Argument: #{a}, 2nd Argument: #{b}"
+    end
+end
+ 
+# derived class Geeks_2
+class Geeks_2 < Geeks_1
+ 
+    # subclass method having the same name
+    # as superclass
+    def display a, b
+         
+        # calling the superclass method
+        # by default it will pass
+        # both the arguments
+        super
+         
+        # passing only one argument
+        super a
+         
+        # passing both the argument
+        super a, b
+         
+        # calling the superclass method
+        # by default it will not pass
+        # both the arguments
+        super()
+         
+        puts "Hey! This is subclass method"
+    end
+end
+ 
+# creating object of derived class
+obj = Geeks_2.new
+ 
+# calling the method of subclass
+obj.display "Sudo_Placement", "GFG"
+```
+<a name="Polymorphism"></a>
+#### 7.5. Polymorphism in Ruby
+<a name="PolymorphismusingInheritance"></a>
+###### 7.5.1. Polymorphism using Inheritance
+
+```ruby
+# Ruby program of Polymorphism using inheritance
+class Vehicle
+    def tyreType
+        puts "Heavy Car"
+    end
+end
+   
+# Using inheritance 
+class Car < Vehicle
+    def tyreType
+        puts "Small Car"
+    end
+end
+   
+# Using inheritance 
+class Truck < Vehicle
+    def tyreType
+        puts "Big Car"
+    end
+end
+  
+# Creating object 
+vehicle = Vehicle.new
+vehicle.tyreType()
+   
+# Creating different object calling same function 
+vehicle = Car.new
+vehicle.tyreType()
+   
+# Creating different object calling same function 
+vehicle = Truck.new
+vehicle.tyreType()
+```
+Output:
+>Heavy Car \
+Small Car \
+Big Car
+<a name="PolymorphismusingDuckTyping"></a>
+###### 7.5.2. Polymorphism using Duck-Typing
+
+```ruby
+# Creating three different classes
+class Hotel
+   
+  def enters
+    puts "A customer enters"
+  end
+   
+  def type(customer)
+    customer.type
+  end
+   
+  def room(customer)
+    customer.room
+  end
+   
+end
+   
+# Creating class with two methods 
+class Single
+   
+  def type
+    puts "Room is on the fourth floor."
+  end
+   
+  def room
+    puts "Per night stay is 5 thousand"
+  end
+   
+end
+   
+   
+class Couple
+   
+ # Same methods as in class single
+  def type
+    puts "Room is on the second floor"
+  end
+   
+  def room
+    puts "Per night stay is 8 thousand"
+  end
+   
+end
+   
+# Creating Object
+# Performing polymorphism 
+hotel= Hotel.new
+puts "This visitor is Single."
+customer = Single.new
+hotel.type(customer)
+hotel.room(customer)
+   
+   
+puts "The visitors are a couple."
+customer = Couple.new
+hotel.type(customer)
+hotel.room(customer)
+```
+Output:
+>This visitor is Single. \
+Room is on the fourth floor. \
+Per night stay is 5 thousand \
+The visitors are a couple. \
+Room is on the second floor \
+Per night stay is 8 thousand
+
+<a name="Encapsulation"></a>
+#### 7.6. Encapsulation in Ruby
+Encapsulation is a protective shield that prevents the data from being accessed by the code outside this shield.
+
+- Technically in encapsulation, the variables or data of a class are hidden from any other class and can be accessed only through any member function of own class in which they are declared.
+- Encapsulation can be achieved by declaring all the variables in the class as private and writing public methods in the class to set and get the values of variables.
+using class,vv...
+
+<a name="DataAbstraction"></a>
+##### 7.7. Data Abstraction
+
+- Data Abstraction in modules: In Ruby, Modules are defined as a set of methods, classes, and constants together.For example, consider the sqrt() method present in Math module. Whenever we need to calculate the square root of a non negative number, We simply call the sqrt() method present in the Math module and send the number as a parameter without understanding the actual algorithm that actually calculates the square root of the numbers.
+
+- Data Abstraction in Classes: we can use classes to perform data abstraction in ruby. The class allows us to group information and methods using access specifiers (private, protected, public). The Class will determine which information should be visible and which is not.
+
+- Data Abstraction using Access Control: There are three levels of access control in Ruby (private, protected, public). These are the most important implementation of data abstraction in ruby. For Example-
+
+  - Members who have been declared public in a class can be accessed from anywhere in the program.
+  - Members declared to be private in a class can only be accessed from within the class. They are
+not allowed to access any part of the code outside the class.
+
+```ruby
+class Geeks 
+  
+    # defining publicMethod 
+      
+    public
+  
+    def publicMethod 
+        puts "In Public!"
+        # calling privateMethod inside publicMethod 
+        privateMethod
+    end
+  
+    # defining privateMethod 
+      
+    private 
+  
+    def privateMethod 
+        puts "In Private!"
+    end
+end
+  
+  
+# creating an object of class Geeks 
+obj = Geeks.new
+  
+# calling the public method of class Geeks 
+obj.publicMethod
+```
+Output:
+>In Public! \
+In Private!
+<a name="IncludevsExtendinRuby"></a>
+# 8. Include v/s Extend in Ruby
+
+- Include is used to importing module code. Ruby will throw an error when we try to access the methods of import module with the class directly because it gets imported as a subclass for the superclass. So, the only way is to access it through the instance of the class.
+- Extend is also used to importing module code but extends import them as class methods. Ruby will throw an error when we try to access methods of import module with the instance of the class because the module gets import to the superclass just as the instance of the extended module. So, the only way is to access it through the class definition.
+
+```ruby
+# Creating a module contains a method
+module Geek
+  def geeks
+    puts 'GeeksforGeeks!'
+  end
+end
+   
+class Lord
+  
+  # only can access geek methods
+  # with the instance of the class.
+  include Geek
+end
+   
+class Star
+    
+  # only can access geek methods
+  # with the class definition.
+  extend Geek
+end
+   
+# object access 
+Lord.new.geeks
+  
+# class access
+Star.geeks 
+  
+# NoMethodError: undefined  method
+# `geeks' for Lord:Class
+Lord.geeks 
+```
+Output:
+>GeeksforGeeks! \
+GeeksforGeeks! \
+main.rb:20:in `': undefined method `geeks' for Lord:Class (NoMethodError)
+
+If we want to import instance methods on a class and its class methods too. We can ‘include’ and ‘extend’ it at the same time.
+
+```ruby
+# Creating a module contains a method
+module Geek
+  def prints(x)
+    puts x
+  end
+end
+   
+class GFG
+  
+  # by using both include and extend
+  # we can access them by both instances
+  #  and class name.
+  include Geek
+  extend Geek
+end
+  
+# access the prints() in Geek
+# module by include in Lord class
+GFG.new.prints("Howdy") # object access
+   
+# access the prints() in Geek 
+# module by extend it in Lord class
+GFG.prints("GeeksforGeeks!!") # class access
+```
+Output:
+>Howdy \
+GeeksforGeeks!!
+
+<a name="Exceptions"></a>
+# 9.Exceptions
+
+#### 9.1. Exception handling
+```
+begin
+    raise
+      # block where exception raise
+
+    rescue
+      # block where exception rescue
+    else
+      # this block executes when no exception raise
+    
+    #explore: retry,ensure
+    
+    retry
+
+    # this statement restarts the rescue
+    # block from the beginning
+    
+    ensure
+    # this block always executes
+end
+```
+#### 9.2. Catch and Throw in Exception Handling
+
+```
+throw :label_name (condition)
+    # this block will not be executed
+
+catch :label_name do
+    # matching catch will be executed when the throw block encounter
+end
+```
+
+```ruby
+def catch_and_throw(value)
+  
+  puts value
+  a = readline.chomp
+  
+  # using throw statement
+  throw :value_e if a == "!"
+  return a
+  
+end
+  
+# using catch statement
+catch :value_e do
+  
+# enter number
+  number = catch_and_throw("Enter Number: ")
+end
+```
+Input:
+>Enter Number: !
+
+Output:
+>nil
+
+#### 9.3. Exception Class and its Methods
+
+1/ exception : This method is used to creates and returns a new exception object.
+
+>Exception.exception(message)
+
+2/ new : This method creates and return a new exception object, optionally setting message to message.
+
+>Exception.new(message)
+> 
+```ruby
+# creating the customized class
+# inherited from StandardError
+class MyException < StandardError
+  attr_reader :myobject
+ 
+  def initialize(myobject)
+    @myobject = myobject
+  end
+end
+ 
+ 
+begin
+ 
+# Using new method
+# to create an object of
+# the given exception
+  raise MyException.new("My object"), "This is custome class"
+rescue MyException => e
+  puts e.message
+  puts e.myobject
+end
 ```
