@@ -1,26 +1,26 @@
 class ManagerOfficer
-  @listOfficers = Array.new()
+  @listOfficers_155 = Array.new()
 
   def initialize
-    @listOfficers = Array.new()
+    @listOfficers_155 = Array.new()
   end
 
   def add(entity)
-    @listOfficers.push(entity)
+    @listOfficers_155.push(entity)
   end
 
   def findByName(name)
-    @listOfficers.each do |i|
-      if i.name == name
-        return i.display
+    @listOfficers_155.each do |i_155|
+      if i_155.name == name
+        return i_155.display
       end
     end
 
   end
 
   def showListInforOfficer()
-    @listOfficers.each do |i|
-      i.display
+    @listOfficers_155.each do |i_155|
+      i_155.display
     end
   end
 
