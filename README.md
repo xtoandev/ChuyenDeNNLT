@@ -1,7 +1,6 @@
 
 # ChuyenDeNgonNguLapTrinh 
 ## Phạm Xuân Toán_1911505310155
-
 - #### Langue: Ruby
 - #### IDE: RubyMineIDE(for JetBrains )
 
@@ -1401,4 +1400,3 @@ rescue MyException => e
   puts e.myobject
 end
 ```
-
