@@ -54,7 +54,7 @@ class ManagerDocument
     @listDocument.delete_if {|x| x.id == id }
   end
 
-  def findByCategory(category)
+  def findByCategory(category,name)
     @listDocument.each do |i|
       if i.class == category
         return i.display
