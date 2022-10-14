@@ -37,23 +37,24 @@ class Nguoi
   end
 
   def display()
-    puts "Nguoi {"+ "Loaiphong: " + @phong.loai_phong.to_s + "| CMND: "+ @cmnd.to_s + "| Ten: "+ @name.to_s+ "| Tuoi: "+@age.to_s + "} "
+    puts "Nguoi {"+ "Loaiphong: " + @phong.to_s + "| CMND: "+ @cmnd.to_s + "| Ten: "+ @name.to_s+ "| Tuoi: "+@age.to_s + "} "
   end
 end
 
 class KhachSan
-  attr_accessor :so_ngay_thue,:nguoi_thue
+  attr_accessor :so_ngay_thue,:ds_nguoi_thue
 
   def initialize(so_ngay_thue,loai_phong,ds_nguoi_thue)
     @so_ngay_thue = so_ngay_thue
     @ds_nguoi_thue = ds_nguoi_thue
   end
   def initialize
+    @ds_nguoi_thue = Array.new()
   end
   def addNguoi(n)
     n.times { |i|
 
-      puts " Nhap nguoi thu " + j.to_s
+      puts " Nhap nguoi thu " + i.to_s
       puts "Nhap cmnd"
       cmnd = gets.chomp.to_s
       puts "Nhap ten"
@@ -73,9 +74,12 @@ class KhachSan
       if(phong == 3)
         loai_phong = PhongC.new
       end
+
       nguoi = Nguoi.new(name, age, cmnd,phong)
       @ds_nguoi_thue.push(nguoi)
     }
+    puts "Nhap so ngay thue"
+    @so_ngay_thue = gets.chomp.to_i
   end
 
   def deleteNguoi()
@@ -114,13 +118,13 @@ class Main
     when 1
       puts "Nhap so nguoi :"
       n = gets.chomp.to_i
-      addNguoi(n)
+      khachsan.addNguoi(n)
     when 2
       khachsan.deleteNguoi
     when 3
       puts "Nhap so CMND nguoi :"
       cmnd = gets.chomp.to_i
-      puts cal_money(cmnd).to_s
+      puts(khachsan.cal_money(cmnd).to_s)
     when 4
       khachsan.showInfor
     when 5
